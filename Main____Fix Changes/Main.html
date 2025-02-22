@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foundation for Disabled Kids in Ghana</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      background-color: #fff;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(90deg, #ff69b4, #40e0d0);
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #ff85c1;
+      padding: 10px;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
+      margin: 0 10px;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      background: #40e0d0;
+      border-radius: 5px;
+    }
+    .hero {
+      background: url('https://tse3.mm.bing.net/th?id=OIP.zbuJSykm9geK5fQ6deWzgQHaFj&pid=Api') center/cover no-repeat;
+      height: 500px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      position: relative;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(255, 105, 180, 0.6);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      animation: fadeIn 2s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .section {
+      padding: 50px 20px;
+      text-align: center;
+    }
+    .section img {
+      width: 80%;
+      max-width: 600px;
+      margin-top: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .button {
+      background: #ff69b4;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .button:hover {
+      background: #40e0d0;
+    }
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>Foundation for Disabled Kids in Ghana</header>
+  <nav>
+    <a href="#about">About Us</a>
+    <a href="#support">How to Help</a>
+    <a href="#stories">Success Stories</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Empowering the Future</h1>
+      <p>Supporting disabled kids with love, hope, and opportunities</p>
+      <button class="button" id="getInvolvedBtn">Get Involved</button>
+    </div>
+  </section>
+  <section class="section" id="about">
+    <h2>About Us</h2>
+    <p>Our foundation is dedicated to empowering disabled kids in Ghana by providing education, healthcare, and skills training.</p>
+    <img src="https://tse1.mm.bing.net/th?id=OIP.EVHfRLZPlsJbkyAUFctE-AHaFc&pid=Api" alt="About Us Image">
+  </section>
+  <section class="section" id="support">
+    <h2>How to Help</h2>
+    <p>You can contribute by donating, volunteering, or spreading awareness.</p>
+    <img src="https://tse3.mm.bing.net/th?id=OIP.f7nruTfG6bcfNT2Er0UMIQHaEK&pid=Api" alt="How to Help Image">
+    <button class="button">Donate Now</button>
+  </section>
+  <section class="section" id="stories">
+    <h2>Success Stories</h2>
+    <p>Meet children whose lives have been changed through our programs.</p>
+    <img src="https://tse1.mm.bing.net/th?id=OIP.dJzTnnaytm6X13GbPaIZtgHaE7&pid=Api" alt="Success Stories Image">
+  </section>
+  <section class="section" id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: contact@disabledkidsghana.org</p>
+    <p>Phone: +233 123 456 789</p>
+    <p>Location: 123 Foundation St, Accra, Ghana</p>
+  </section>
+  <footer>
+    &copy; 2025 Foundation for Disabled Kids in Ghana. All Rights Reserved.
+  </footer>
+</body>
+</html>
