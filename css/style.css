@@ -713,6 +713,128 @@ a    { color: inherit; text-decoration: none; }
 svg defs { position: absolute; }
 
 /* ================================================================
+   SCROLL ANCHOR OFFSET — prevents fixed navbar hiding headings
+================================================================ */
+section[id], div[id] {
+  scroll-margin-top: 110px;
+}
+
+/* ================================================================
+   FAQ ACCORDION
+================================================================ */
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 3rem;
+  margin-bottom: 2.5rem;
+}
+.faq-col { display: flex; flex-direction: column; }
+
+.faq-item {
+  border-bottom: 1px solid var(--gray-200);
+}
+.faq-item:first-child { border-top: 1px solid var(--gray-200); }
+
+.faq-question {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  width: 100%; padding: 1.2rem 0;
+  background: none; border: none; cursor: pointer;
+  font-family: var(--font-sans); font-size: .975rem; font-weight: 600;
+  color: var(--gray-800); text-align: left;
+  transition: color var(--dur);
+}
+.faq-question:hover { color: var(--purple); }
+.faq-question[aria-expanded="true"] { color: var(--purple); }
+.faq-question i {
+  width: 1.1rem; height: 1.1rem; flex-shrink: 0; color: var(--gray-400);
+  transition: transform var(--dur) var(--ease), color var(--dur);
+}
+.faq-question[aria-expanded="true"] i {
+  transform: rotate(180deg); color: var(--purple);
+}
+
+.faq-answer {
+  padding-bottom: 1.25rem;
+  animation: faq-open .25s var(--ease);
+}
+.faq-answer[hidden] { display: none; }
+.faq-answer p { font-size: .925rem; color: var(--gray-600); line-height: 1.75; }
+@keyframes faq-open { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+
+.faq-more { text-align: center; font-size: .95rem; color: var(--gray-500); }
+
+/* ================================================================
+   WHATSAPP FLOATING BUTTON
+================================================================ */
+.whatsapp-float {
+  position: fixed; bottom: 5.5rem; right: 2rem; z-index: 600;
+  width: 3.4rem; height: 3.4rem;
+  background: #25d366; color: var(--white);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,.45);
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur);
+  text-decoration: none;
+}
+.whatsapp-float:hover {
+  transform: scale(1.12) translateY(-2px);
+  box-shadow: 0 8px 28px rgba(37,211,102,.55);
+}
+.whatsapp-float svg { width: 1.6rem; height: 1.6rem; }
+
+.whatsapp-tooltip {
+  position: absolute; right: 110%; top: 50%; transform: translateY(-50%);
+  background: var(--gray-900); color: var(--white);
+  font-size: .78rem; font-weight: 600; white-space: nowrap;
+  padding: .35rem .75rem; border-radius: var(--radius-sm);
+  opacity: 0; pointer-events: none;
+  transition: opacity var(--dur);
+}
+.whatsapp-tooltip::after {
+  content: ''; position: absolute; left: 100%; top: 50%; transform: translateY(-50%);
+  border: 5px solid transparent; border-left-color: var(--gray-900);
+}
+.whatsapp-float:hover .whatsapp-tooltip,
+.whatsapp-float:focus .whatsapp-tooltip { opacity: 1; }
+
+/* On mobile push above sticky bar */
+@media (max-width: 768px) {
+  .whatsapp-float { bottom: 5rem; right: 1rem; }
+}
+
+/* ================================================================
+   COOKIE CONSENT BANNER
+================================================================ */
+.cookie-banner {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 1500;
+  background: var(--gray-900); color: rgba(255,255,255,.88);
+  padding: 1.1rem clamp(1rem, 4vw, 2rem);
+  border-top: 2px solid var(--purple);
+  animation: cookie-slide-up .4s var(--ease);
+}
+.cookie-banner[hidden] { display: none; }
+@keyframes cookie-slide-up { from { transform: translateY(100%); } to { transform: none; } }
+
+.cookie-inner {
+  max-width: var(--container); margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1.5rem; flex-wrap: wrap;
+}
+
+.cookie-text {
+  display: flex; align-items: center; gap: .75rem; flex: 1; min-width: 200px;
+}
+.cookie-text i { width: 1.3rem; height: 1.3rem; color: var(--gold); flex-shrink: 0; }
+.cookie-text p  { font-size: .875rem; margin: 0; }
+
+.cookie-actions { display: flex; gap: .75rem; flex-shrink: 0; }
+.cookie-actions .btn-outline {
+  border-color: rgba(255,255,255,.3); color: rgba(255,255,255,.75);
+}
+.cookie-actions .btn-outline:hover {
+  background: rgba(255,255,255,.08);
+}
+
+/* ================================================================
    RESPONSIVE
 ================================================================ */
 @media (max-width: 1024px) {
@@ -729,6 +851,9 @@ svg defs { position: absolute; }
 }
 
 @media (max-width: 768px) {
+  .faq-grid { grid-template-columns: 1fr; gap: 0; }
+  .faq-col:first-child .faq-item:first-child { border-top: 1px solid var(--gray-200); }
+  .faq-col + .faq-col .faq-item:first-child { border-top: none; }
   .hamburger { display: flex; }
   .nav-links {
     position: fixed; top: 100px; left: 0; right: 0;

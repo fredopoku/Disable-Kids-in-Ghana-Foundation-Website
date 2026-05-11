@@ -66,7 +66,7 @@ navLinks.querySelectorAll('.nav-link').forEach(l => l.addEventListener('click', 
   hamburger.setAttribute('aria-expanded', 'false');
 }));
 
-const sectionIds = ['home','about','programs','impact','stories','support','events','contact'];
+const sectionIds = ['home','about','programs','impact','stories','support','events','faq','contact'];
 const highlightNav = () => {
   let current = 'home';
   sectionIds.forEach(id => {
@@ -353,6 +353,67 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 scrollTopBtn && scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+/* ----------------------------------------------------------------
+   FAQ accordion
+---------------------------------------------------------------- */
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    const answer   = btn.nextElementSibling;
+
+    // Close all others in same column
+    btn.closest('.faq-col').querySelectorAll('.faq-question').forEach(other => {
+      if (other !== btn) {
+        other.setAttribute('aria-expanded', 'false');
+        other.nextElementSibling.hidden = true;
+      }
+    });
+
+    btn.setAttribute('aria-expanded', String(!expanded));
+    answer.hidden = expanded;
+    if (!expanded) btn.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  });
+});
+
+/* ----------------------------------------------------------------
+   Cookie consent
+---------------------------------------------------------------- */
+const cookieBanner  = document.getElementById('cookieBanner');
+const cookieAccept  = document.getElementById('cookieAccept');
+const cookieDecline = document.getElementById('cookieDecline');
+
+if (cookieBanner && !localStorage.getItem('anigrace_cookie')) {
+  setTimeout(() => {
+    cookieBanner.hidden = false;
+    if (window.lucide) lucide.createIcons();
+  }, 2400);
+}
+cookieAccept && cookieAccept.addEventListener('click', () => {
+  localStorage.setItem('anigrace_cookie', 'accepted');
+  cookieBanner.hidden = true;
+});
+cookieDecline && cookieDecline.addEventListener('click', () => {
+  localStorage.setItem('anigrace_cookie', 'declined');
+  cookieBanner.hidden = true;
+});
+
+/* ----------------------------------------------------------------
+   Focus trap in donate modal
+---------------------------------------------------------------- */
+donateModal && donateModal.addEventListener('keydown', e => {
+  if (e.key !== 'Tab') return;
+  const focusable = donateModal.querySelectorAll(
+    'button:not([disabled]), a[href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+  );
+  const first = focusable[0];
+  const last  = focusable[focusable.length - 1];
+  if (e.shiftKey) {
+    if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+  } else {
+    if (document.activeElement === last)  { e.preventDefault(); first.focus(); }
+  }
+});
 
 /* ----------------------------------------------------------------
    Footer year
