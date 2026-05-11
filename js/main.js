@@ -45,7 +45,7 @@ document.addEventListener('click', e => {
 });
 
 // Active section highlight
-const sectionIds = ['home', 'about', 'programs', 'impact', 'stories', 'donate', 'events', 'contact'];
+const sectionIds = ['home', 'about', 'programs', 'impact', 'stories', 'support', 'events', 'contact'];
 
 const highlightNavLink = () => {
   let current = 'home';
