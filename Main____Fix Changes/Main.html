@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foundation for Disabled Kids in Ghana</title>
+  <style>
+    /* Existing styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      background-color: #fff;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(90deg, #ff69b4, #40e0d0);
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #ff85c1;
+      padding: 10px;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
+      margin: 0 10px;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      background: #40e0d0;
+      border-radius: 5px;
+    }
+    .hero {
+      background: url('https://tse3.mm.bing.net/th?id=OIP.zbuJSykm9geK5fQ6deWzgQHaFj&pid=Api') center/cover no-repeat;
+      height: 500px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      position: relative;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(255, 105, 180, 0.6);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      animation: fadeIn 2s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .section {
+      padding: 50px 20px;
+      text-align: center;
+    }
+    .section img {
+      width: 100%;
+      max-width: 600px;
+      margin: 20px auto;
+      display: block;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .button {
+      background: #ff69b4;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .button:hover {
+      background: #40e0d0;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+    .modal-content {
+      background-color: #fff;
+      margin: 15% auto;
+      padding: 20px;
+      width: 80%;
+      max-width: 400px;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .close:hover {
+      color: #000;
+    }
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* New styles */
+    .dark-mode {
+      background-color: #333;
+      color: #fff;
+    }
+    .dark-mode .section {
+      background-color: #444;
+    }
+    .dark-mode .modal-content {
+      background-color: #555;
+      color: #fff;
+    }
+    .image-slider {
+      position: relative;
+      overflow: hidden;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .slider-images {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    .slider-images img {
+      width: 100%;
+      flex-shrink: 0;
+    }
+    .slider-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+    }
+    .slider-button.prev {
+      left: 10px;
+    }
+    .slider-button.next {
+      right: 10px;
+    }
+    #contact-form {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    #contact-form input,
+    #contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .error {
+      color: red;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <header>Foundation for Disabled Kids in Ghana</header>
+  <nav>
+    <a href="#about">About Us</a>
+    <a href="#support">How to Help</a>
+    <a href="#stories">Success Stories</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Empowering the Future</h1>
+      <p>Supporting disabled kids with love, hope, and opportunities</p>
+      <button class="button" id="getInvolvedBtn">Get Involved</button>
+    </div>
+  </section>
+  <section class="section" id="about">
+    <h2>About Us</h2>
+    <p>Our foundation is dedicated to empowering disabled kids in Ghana by providing education, healthcare, and skills training.</p>
+    <img src="https://tse1.mm.bing.net/th?id=OIP.EVHfRLZPlsJbkyAUFctE-AHaFc&pid=Api" alt="About Us Image">
+  </section>
+  <section class="section" id="support">
+    <h2>How to Help</h2>
+    <p>You can contribute by donating, volunteering, or spreading awareness.</p>
+    <img src="https://tse3.mm.bing.net/th?id=OIP.f7nruTfG6bcfNT2Er0UMIQHaEK&pid=Api" alt="How to Help Image">
+    <button class="button">Donate Now</button>
+  </section>
+  <section class="section" id="stories">
+    <h2>Success Stories</h2>
+    <p>Meet children whose lives have been changed through our programs.</p>
+    <div class="image-slider">
+      <div class="slider-images">
+        <img src="https://tse1.mm.bing.net/th?id=OIP.dJzTnnaytm6X13GbPaIZtgHaE7&pid=Api" alt="Success Story 1">
+        <img src="https://tse2.mm.bing.net/th?id=OIP.8ZxNjTfPGjvtjQK9ZLMrGQHaE8&pid=Api" alt="Success Story 2">
+        <img src="https://tse4.mm.bing.net/th?id=OIP.qCk9njzBe-_94A1jO8SYwQHaE8&pid=Api" alt="Success Story 3">
+      </div>
+      <button class="slider-button prev">&lt;</button>
+      <button class="slider-button next">&gt;</button>
+    </div>
+  </section>
+  <section class="section" id="contact">
+    <h2>Contact Us</h2>
+    <form id="contact-form">
+      <input type="text" id="name" name="name" placeholder="Your Name" required>
+      <input type="email" id="email" name="email" placeholder="Your Email" required>
+      <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+      <button type="submit" class="button">Send Message</button>
+    </form>
+    <p>Email: contact@disabledkidsghana.org</p>
+    <p>Phone: +233 123 456 789</p>
+    <p>Location: 123 Foundation St, Accra, Ghana</p>
+  </section>
+  <div id="getInvolvedModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Get Involved</h2>
+      <p>Join us in making a difference. Choose how you'd like to reach us:</p>
+      <button class="button" onclick="window.open('https://wa.me/233123456789', '_blank')">WhatsApp</button>
+      <button class="button" onclick="window.open('mailto:contact@disabledkidsghana.org', '_blank')">Email</button>
+    </div>
+  </div>
+  <footer>
+    &copy; 2025 Foundation for Disabled Kids in Ghana. All Rights Reserved.
+    <button id="darkModeToggle" class="button">Toggle Dark Mode</button>
+  </footer>
+
+  <script>
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Image slider
+    const sliderImages = document.querySelector('.slider-images');
+    const prevButton = document.querySelector('.slider-button.prev');
+    const nextButton = document.querySelector('.slider-button.next');
+    let currentIndex = 0;
+
+    function showImage(index) {
+      sliderImages.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    prevButton.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + 3) % 3;
+      showImage(currentIndex);
+    });
+
+    nextButton.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % 3;
+      showImage(currentIndex);
+    });
+
+    // Form validation
+    const contactForm = document.getElementById('contact-form');
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name');
+      const email = document.getElementById('email');
+      const message = document.getElementById('message');
+      let isValid = true;
+
+      if (name.value.trim() === '') {
+        showError(name, 'Name is required');
+        isValid = false;
+      } else {
+        removeError(name);
+      }
+
+      if (email.value.trim() === '') {
+        showError(email, 'Email is required');
+        isValid = false;
+      } else if (!isValidEmail(email.value)) {
+        showError(email, 'Please enter a valid email');
+        isValid = false;
+      } else {
+        removeError(email);
+      }
+
+      if (message.value.trim() === '') {
+        showError(message, 'Message is required');
+        isValid = false;
+      } else {
+        removeError(message);
+      }
+
+      if (isValid) {
+        alert('Form submitted successfully!');
+        contactForm.reset();
+      }
+    });
+
+    function showError(input, message) {
+      const errorElement = input.nextElementSibling;
+      if (errorElement && errorElement.classList.contains('error')) {
+        errorElement.textContent = message;
+      } else {
+        const error = document.createElement('div');
+        error.className = 'error';
+        error.textContent = message;
+        input.parentNode.insertBefore(error, input.nextSibling);
+      }
+    }
+
+    function removeError(input) {
+      const errorElement = input.nextElementSibling;
+      if (errorElement && errorElement.classList.contains('error')) {
+        errorElement.remove();
+      }
+    }
+
+    function isValidEmail(email) {
+      const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(String(email).toLowerCase());
+    }
+
+    // Modal functionality
+    const modal = document.getElementById('getInvolvedModal');
+    const btn = document.getElementById('getInvolvedBtn');
+    const span = document.getElementsByClassName('close')[0];
+
+    btn.onclick = function() {
+      modal.style.display = 'block';
+    }
+
+    span.onclick = function() {
+      modal.style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = 'none';
+      }
+    }
+
+    // Dark mode toggle
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    darkModeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+    });
+  </script>
+</body>
+</html>

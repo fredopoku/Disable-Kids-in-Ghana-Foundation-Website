@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Foundation for Disabled Kids in Ghana</title>
+  <style>
+    /* Basic Reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      color: #333;
+      background-color: #fff;
+      line-height: 1.6;
+    }
+    header, footer {
+      background-color: #ff69b4; /* Hot pink */
+      color: #fff;
+      padding: 20px 10px;
+      text-align: center;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 10px;
+    }
+    nav ul li {
+      margin: 0 15px;
+    }
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+    nav ul li a:hover {
+      color: #ffe6f2;
+    }
+    .hero {
+      background: url('hero-image.jpg') center/cover no-repeat;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 105, 180, 0.5); /* Overlay in pink */
+      z-index: 0;
+    }
+    .hero > div {
+      position: relative;
+      z-index: 1;
+    }
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+    .button {
+      background-color: #ff85c1;
+      color: #fff;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+    .button:hover {
+      background-color: #ffb3d1;
+    }
+    .content {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .section {
+      margin-bottom: 60px;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .section.fade-in {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+    .section h2 {
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 32px;
+      color: #ff69b4;
+    }
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    footer p {
+      margin: 5px 0;
+    }
+    /* Scroll-to-top button */
+    #scrollToTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      display: none;
+      background-color: #ff69b4;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      padding: 10px 15px;
+      cursor: pointer;
+      font-size: 24px;
+      z-index: 100;
+      transition: background-color 0.3s ease;
+    }
+    #scrollToTop:hover {
+      background-color: #ff85c1;
+    }
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 32px;
+      }
+      .hero p {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header and Navigation -->
+  <header>
+    <h2>Foundation for Disabled Kids in Ghana</h2>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#support">How to Help</a></li>
+        <li><a href="#stories">Success Stories</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#resources">Resources</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div>
+      <h1>Empowering Futures</h1>
+      <p>Supporting disabled kids in Ghana with hope, love, and opportunity</p>
+      <a class="button" href="#support" id="getInvolvedBtn">Get Involved</a>
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+  <section class="content section" id="about">
+    <div>
+      <h2>About Us</h2>
+      <p>Our foundation is dedicated to empowering disabled kids in Ghana by offering educational, healthcare, and skill development programs. We believe in the power of community support and strive to create a nurturing environment where every child can thrive.</p>
+      <p>Download our detailed story:</p>
+      <a class="button" href="our_story.pdf" target="_blank">Download Our Story</a>
+    </div>
+  </section>
+
+  <!-- How to Help Section -->
+  <section class="content section" id="support">
+    <div>
+      <h2>How to Help</h2>
+      <p>Your support makes a real difference. Whether you choose to donate, volunteer, or spread awareness, every action helps us empower these children. For those without online transaction capabilities, we offer bank transfers, mail-in donations, and in-person support options.</p>
+      <p>For more detailed donation instructions:</p>
+      <a class="button" href="donate_info.pdf" target="_blank">Donation Info</a>
+    </div>
+  </section>
+
+  <!-- Success Stories Section -->
+  <section class="content section" id="stories">
+    <div>
+      <h2>Success Stories</h2>
+      <div class="grid-container">
+        <div class="card">
+          <img src="story1.jpg" alt="Success Story 1" />
+          <h3>Hope Restored</h3>
+          <p>Discover how our programs have transformed lives and created lasting change in communities.</p>
+        </div>
+        <div class="card">
+          <img src="story2.jpg" alt="Success Story 2" />
+          <h3>New Beginnings</h3>
+          <p>Learn about the inspiring journeys of children who have overcome adversity through our support.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Events and News Section -->
+  <section class="content section" id="events">
+    <div>
+      <h2>Events &amp; News</h2>
+      <p>Stay informed about upcoming community meetings, fundraisers, and events. We update our calendar regularly to keep you in the loop.</p>
+      <p>Download our event schedule:</p>
+      <a class="button" href="events_schedule.pdf" target="_blank">Event Schedule</a>
+    </div>
+  </section>
+
+  <!-- Resources Section -->
+  <section class="content section" id="resources">
+    <div>
+      <h2>Resources &amp; Downloads</h2>
+      <p>Access flyers, guides, and newsletters to help spread our message. These resources are available for offline use and can be shared with your community.</p>
+      <a class="button" href="resource_pack.zip" target="_blank">Download Resources</a>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="content section" id="contact">
+    <div>
+      <h2>Contact Us</h2>
+      <p>We’d love to hear from you! Reach out to share ideas, ask questions, or learn more about how you can support our mission.</p>
+      <ul>
+        <li><strong>Email:</strong> contact@disabledkidsghana.org</li>
+        <li><strong>Phone:</strong> +233 123 456 789</li>
+        <li><strong>Address:</strong> 123 Foundation St, Accra, Ghana</li>
+      </ul>
+      <p>Prefer offline? Download our contact card:</p>
+      <a class="button" href="contact_card.pdf" target="_blank">Download Contact Card</a>
+    </div>
+  </section>
+
+  <!-- Scroll-to-Top Button -->
+  <button id="scrollToTop" title="Go to top">↑</button>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Foundation for Disabled Kids in Ghana. All rights reserved.</p>
+    <p>Designed with love and community in mind.</p>
+  </footer>
+
+  <!-- Interactive JavaScript -->
+  <script>
+    // Scroll-to-top button functionality
+    const scrollToTopButton = document.getElementById('scrollToTop');
+    window.addEventListener('scroll', function() {
+      if (window.pageYOffset > 300) {
+        scrollToTopButton.style.display = 'block';
+      } else {
+        scrollToTopButton.style.display = 'none';
+      }
+    });
+    scrollToTopButton.addEventListener('click', function() {
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    });
+
+    // Fade-in effect for sections on scroll
+    const sections = document.querySelectorAll('.section');
+    function checkSections() {
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= window.innerHeight - 100) {
+          section.classList.add('fade-in');
+        }
+      });
+    }
+    window.addEventListener('scroll', checkSections);
+    window.addEventListener('load', checkSections);
+
+    // Example interactive alert on Get Involved button click
+    const getInvolvedBtn = document.getElementById('getInvolvedBtn');
+    getInvolvedBtn.addEventListener('click', function() {
+      alert("Thank you for your interest in getting involved! Scroll down to see how you can help.");
+    });
+
+    // Generate actual sample files for download links with meaningful content
+    const filesContent = {
+      "our_story.pdf": 
+`Foundation Our Story
+
+In 2020, a group of dedicated volunteers came together with a shared vision: to empower disabled kids in Ghana. 
+Our mission is to provide these children with access to education, healthcare, and the tools they need to thrive. 
+Every success story fuels our passion, and every donation brings us closer to a future where every child is given a chance.
+Join us in our journey to transform lives and build a brighter tomorrow.`,
+      
+      "donate_info.pdf": 
+`Donation Information
+
+Thank you for considering a donation to support disabled kids in Ghana.
+Your contribution helps fund educational programs, healthcare services, and community outreach initiatives.
+Donation Options:
+1. Bank Transfer: Account No. 123456789 at XYZ Bank.
+2. Mail-In Donation: Please send your check to 123 Foundation St, Accra, Ghana.
+We deeply appreciate your generosity. Please contact us for any additional information.`,
+      
+      "events_schedule.pdf": 
+`Events Schedule
+
+Upcoming Events:
+1. Community Meeting - July 15, 2025 at Accra Community Center.
+2. Annual Fundraiser - August 10, 2025 at the Main Auditorium.
+3. Volunteer Training Workshop - September 5, 2025 at the Foundation Office.
+Stay tuned for further updates and details about these events.`,
+      
+      "resource_pack.zip": 
+`Resource Pack Contents:
+
+- Event Flyer: "Join Our Fundraiser" (PDF)
+- Newsletter: "Latest Success Stories and Updates" (PDF)
+- Volunteer Guide: "How to Get Involved" (PDF)
+These resources are provided to help spread our message and engage the community. Feel free to distribute them.`,
+      
+      "contact_card.pdf": 
+`Contact Card
+
+Foundation for Disabled Kids in Ghana
+Email: contact@disabledkidsghana.org
+Phone: +233 123 456 789
+Address: 123 Foundation St, Accra, Ghana
+
+Visit our website or contact us directly for more information and updates.`
+    };
+
+    // Update each download link with actual content
+    Object.keys(filesContent).forEach(function(filename) {
+      const links = document.querySelectorAll(`a[href="${filename}"]`);
+      links.forEach(function(link) {
+        const blob = new Blob([filesContent[filename]], { type: 'application/octet-stream' });
+        const url = URL.createObjectURL(blob);
+        link.href = url;
+        link.setAttribute('download', filename);
+      });
+    });
+  </script>
+</body>
+</html>
