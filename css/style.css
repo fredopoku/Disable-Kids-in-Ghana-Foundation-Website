@@ -201,7 +201,18 @@ a   { color: inherit; text-decoration: none; }
   font-weight: 800; font-size: 1.25rem;
   text-decoration: none;
 }
-.logo-mark svg { display: block; }
+.logo-img {
+  height: 52px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,.25));
+  transition: opacity var(--dur);
+}
+.logo-img--footer {
+  height: 56px;
+}
+.logo-img:hover { opacity: .9; }
 .logo-wordmark { line-height: 1; }
 .logo-ani   { color: var(--purple); }
 .logo-grace { color: var(--pink); }
