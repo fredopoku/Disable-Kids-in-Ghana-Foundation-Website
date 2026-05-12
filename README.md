@@ -21,7 +21,7 @@
 | ![Impact](assets/screenshots/desktop-impact.png) | ![Mobile Donate](assets/screenshots/mobile-donate.png) |
 | ![FAQ](assets/screenshots/desktop-faq.png) | |
 
-> **To add screenshots:** open the site in a browser, take screenshots of each section and save them in `assets/screenshots/` using the filenames above.
+
 
 ---
 
